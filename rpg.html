@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RPG</title>
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Adicione a biblioteca jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@openai/openai/dist/openai.min.js"></script> <!-- Adicione a biblioteca openai.js -->
+    
+    <script>
+	//D3,D4, D6, D8, D10, D12, D20 E D100
+		function gerarNumeroAleatorio(numeromax) {
+
+            var txtnumerodados = parseInt(document.getElementById("txt").value); // Obtém o número digitado
+
+            // Verifica se o valor é um número válido
+            if (isNaN(txtnumerodados)) {
+                txtnumerodados = 1;
+            }
+            var dados = "";
+            for (let index = 0; index < txtnumerodados; index++) {
+                 // Gera um número aleatório de 1 a numeromax
+                var numeroAleatorio = Math.floor(Math.random() * numeromax) + 1;
+                dados +=  "D" + numeromax + ": " + numeroAleatorio + "<br>";
+            }  
+                       
+            // Exibe o número na página
+            document.getElementById("numeroAleatorio").innerHTML = dados;
+			
+        }		
+
+        /*
+        function gerarNumeroAleatorio() {
+            var numeromax = parseInt(document.getElementById("txt").value); // Obtém o número digitado
+
+            // Verifica se o valor é um número válido
+            if (isNaN(numeromax)) {
+                document.getElementById("numeroAleatorio").innerHTML = "Por favor, insira um número válido.";
+                return;
+            }
+
+            var numeroAleatorio = Math.floor(Math.random() * numeromax) + 1;
+            document.getElementById("numeroAleatorio").innerHTML = "D" + numeromax + ": " + numeroAleatorio;
+        }*/
+				
+    </script>
+</head>
+<body>
+    <h1>RPG</h1>
+    <p>Qnt. dados: </p>
+    <input type="number" id="txt" name="txt">
+	<button id="D03" onclick="gerarNumeroAleatorio(3)">D03</button>
+	<button id="D04" onclick="gerarNumeroAleatorio(4)">D04</button>
+    <button id="D06" onclick="gerarNumeroAleatorio(6)">D06</button>
+    <button id="D08" onclick="gerarNumeroAleatorio(8)">D08</button>
+	<button id="D10" onclick="gerarNumeroAleatorio(10)">D10</button>
+	<button id="D12" onclick="gerarNumeroAleatorio(12)">D12</button>
+	<button id="D20" onclick="gerarNumeroAleatorio(20)">D20</button>
+	<button id="D100" onclick="gerarNumeroAleatorio(100)">D100</button>
+    <p id="numeroAleatorio"></p>
+</body>
+</html>
