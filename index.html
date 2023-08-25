@@ -15,31 +15,21 @@
             if (isNaN(txtnumerodados)) {
                 txtnumerodados = 1;
             }
+
             var dados = "";
+            var valorTotal= 0;
+
             for (let index = 0; index < txtnumerodados; index++) {
                  // Gera um número aleatório de 1 a numeromax
                 var numeroAleatorio = Math.floor(Math.random() * numeromax) + 1;
                 dados +=  "D" + numeromax + ": " + numeroAleatorio + "<br>";
+                valorTotal = valorTotal +  numeroAleatorio;
             }  
                        
             // Exibe o número na página
             document.getElementById("numeroAleatorio").innerHTML = dados;
-			
-        }		
-
-        /*
-        function gerarNumeroAleatorio() {
-            var numeromax = parseInt(document.getElementById("txt").value); // Obtém o número digitado
-
-            // Verifica se o valor é um número válido
-            if (isNaN(numeromax)) {
-                document.getElementById("numeroAleatorio").innerHTML = "Por favor, insira um número válido.";
-                return;
-            }
-
-            var numeroAleatorio = Math.floor(Math.random() * numeromax) + 1;
-            document.getElementById("numeroAleatorio").innerHTML = "D" + numeromax + ": " + numeroAleatorio;
-        }*/
+			document.getElementById("valorTotal").innerHTML = "Valor Total dos Dados: " + valorTotal;
+       }	      
 				
     </script>
 </head>
@@ -55,6 +45,7 @@
 	<button id="D12" onclick="gerarNumeroAleatorio(12)">D12</button>
 	<button id="D20" onclick="gerarNumeroAleatorio(20)">D20</button>
 	<button id="D100" onclick="gerarNumeroAleatorio(100)">D100</button>
-    <p id="numeroAleatorio"></p>
+    <p id="numeroAleatorio"></p>  
+    <p id="valorTotal"></p>
 </body>
 </html>
